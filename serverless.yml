@@ -1,0 +1,33 @@
+org: '1251764741'
+app: alpgo-eat
+stage: dev
+component: springboot
+name: springboot-oEOA45qeP
+inputs:
+  src: ./
+  region: ap-shanghai
+  runtime: Java8
+  isAutoCiDeploy: false
+  functionConf:
+    eip: false
+    timeout: 30
+    memorySize: 256
+    handler: 'cc.alpgo.eat.MyHandler::mainHandler'
+  projectJarName: alpgo-eat-1.0-SNAPSHOT.jar
+  apigatewayConf:
+    serviceTimeout: 60
+    customDomains:
+      - domain: eat.alpgo.cc
+        certificateId: lnhR7qt1
+        isDefaultMapping: false
+        pathMappingSet:
+          - path: /
+            environment: release
+        protocols:
+          - http
+          - https
+    autoCreateDns: false
+    protocols:
+      - http
+      - https
+    environment: release
